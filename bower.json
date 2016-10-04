@@ -13,6 +13,7 @@
         "bower_components"
     ],
     "dependencies": {
-        "webcomponentsjs": "^0.7.0"
+        "webcomponentsjs": "^0.7.0",
+        "gadget-element" : "git://github.com/udarakr/gadget-element"
     }
 }
