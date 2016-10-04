@@ -1,0 +1,22 @@
+<template>
+    <p>Gadget Content goes here!!</p>
+</template>
+
+<script>
+(function(window, document, undefined) {
+    var thatDoc = document;
+    var thisDoc =  (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+    var template = thisDoc.querySelector('template').content;
+    var GadgetProto = Object.create(HTMLElement.prototype);
+
+    GadgetProto.createdCallback = function() {
+        var shadowRoot = this.createShadowRoot();
+        var clone = thatDoc.importNode(template, true);
+        shadowRoot.appendChild(clone);
+    };
+
+    window.MyElement = thatDoc.registerElement('wso2-gadget', {
+        prototype: GadgetProto
+    });
+})(window, document);
+</script>
